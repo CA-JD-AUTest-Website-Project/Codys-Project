@@ -1,2 +1,2 @@
-# Codys-Project
-A repository for Codys copy of our project.
+# Project
+A repository for a copy of our project.
