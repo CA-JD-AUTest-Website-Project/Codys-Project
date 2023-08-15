@@ -1,16 +1,23 @@
+//export default ?
+
 export class testValues {
 
     //explicitly states what is being tested in IT statement, as well as data var, therefore can use keyword to search excel for TAG
     // or can search for data value itslf, a better approach
-    static firstNameV {
+
+
     
-        validDefault: 'Günther',   //Test Case 1, first of all valid values
-        valid2: '',     //Test Case 2
-        valid3: '',     //
+    static firstNameV = {
+    
+        validDefault: 'Günther',//,   //Test Case 1, first of all valid values
+        valid2: 'placeholder' //,    //Test Case 2
+        //valid3: '',     //
     
     
     }
-    
+
+
+    /*
     static firstNameI {     //invalid thingies... Case Type such as firstNameIP, firstNameBVAL, firstNameEP?
                             //each invalid data for a different test case
         invalid1: '',      //first invalid name  with Tag ##
@@ -206,7 +213,7 @@ export class testValues {
     }
     }
     
-    
+    */
     /*
     for Array[ContainsAllFields], n++ through all fields, <Array.length){
             //enters all valid fields 0 through n
@@ -219,4 +226,5 @@ export class testValues {
     
     */
  }
-}
+ 
+//}

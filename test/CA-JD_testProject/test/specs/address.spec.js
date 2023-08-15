@@ -1,10 +1,11 @@
 /**
  * test with page objects
  */
+/*
 import RegisterPage from '../pageobjects/register.page.js'
 
 
-describe.skip('My Address application', () => {
+xdescribe('My Address application', () => {
     it('should check validity of TEST CASE # Address entries', async () => {
         await RegisterPage.open()
 
@@ -16,3 +17,5 @@ describe.skip('My Address application', () => {
        //     'You logged into a secure area!')
     })
 })
+
+*/

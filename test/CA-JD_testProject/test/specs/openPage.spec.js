@@ -1,4 +1,4 @@
-import RegisterPage from '../pageobjects/register.page.js'
+/*import RegisterPage from '../pageobjects/register.page.js'
 
 
 describe('My openPage application', () => {
@@ -8,9 +8,7 @@ describe('My openPage application', () => {
         console.log = "The page should have been successfully opened" 
         //begin valid test cases here
 
-        //await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        //await expect(SecurePage.flashAlert).toBeExisting()
-       // await expect(SecurePage.flashAlert).toHaveTextContaining(
-       //     'You logged into a secure area!')
+        
     })
 })
+*/

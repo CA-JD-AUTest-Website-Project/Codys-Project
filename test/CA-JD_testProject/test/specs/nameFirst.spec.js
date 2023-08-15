@@ -2,9 +2,9 @@
  * test with page objects
  */
 
-import RegisterPage from '../pageobjects/register.page.js'
-import { testValues } from '../testData/testData.js'
-
+//import RegisterPage from '../pageobjects/register.page.js'
+//import { testValues } from '../testData/testData.js'
+/*
 xdescribe('nameFirst application addresses the firstname field, this positive test suite ', () => {
     it('will ensure allowance, validity of inclusion of XXX requirement', async () => {
         await RegisterPage.open()
@@ -30,3 +30,4 @@ xdescribe('nameFirst application addresses the firstname field, this negative te
         
     })
 })
+*/
