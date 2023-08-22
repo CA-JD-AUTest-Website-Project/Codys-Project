@@ -4,7 +4,7 @@ export class testValues {
     // or can search for data value itslf, a better approach
     static firstNameV = {
     
-        validDefaul: 'Günther',   //Test Case 1, first of all valid values
+        validDefault: 'Günther',   //Test Case 1, first of all valid values
         valid2: 'Eliza\'',     //Test Case 2
         valid3: 'Günther-',
         valid4: 'Bob',
@@ -73,7 +73,7 @@ export class testValues {
     
     static addressV = {
         validDefault: '7791 Piña-Pizza St.',
-        valid2: ''
+        valid2: '7791'
     
     
     }
