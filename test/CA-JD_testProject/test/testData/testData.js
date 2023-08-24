@@ -49,18 +49,17 @@ export class testValues {
     static passwordV = {
         validDefault: '*Wisew0mbat!*',
         valid2: 'Womba1',
-        valid2: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3'
+        valid3: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3'
     }
     
     static passwordI = {
         invalid1: 'Womb1',
-        invalid1: 'Günther#1',                 //contains first name
-        invalid1: 'Have\'feld#2',              //containst last name
-        invalid1: '<Jacksolittlé!>@gmail.com', //same as email
-        invalid1: '*wisew0mbat!*',
-        invalid1: '*Wisewombat!*',
-        invalid1: '*Wisew0mbat*',
-        invalid1: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3z'
+        invalid2: 'Günther#1',                 //contains first name
+        invalid3: 'Have\'feld#2',              //containst last name
+        invalid4: '<Jacksolittlé!>@gmail.com', //same as email
+        invalid5: '*wisew0mbat!*',
+        invalid6: '*Wisewombat!*',
+        invalid7: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3z'
     }
     
     static confirmV = {
@@ -101,10 +100,8 @@ export class testValues {
     
     static countryV = {
         validDefault: 'UNITED STATES',
-        valid2: 'Canada',
+        valid2: 'CANADA',
         valid3: 'UK'
-    
-    
     }
     
     static countryI = {
@@ -133,8 +130,8 @@ export class testValues {
     }
     
     static stateI = {
-        invalid1: '45', //corrosponds with state letters
-        invalid2: '&%',
+        invalid1: '45',  //corrosponds with state letters
+        invalid2: '&%',  //results in AA because that's bottom option
         invalid3: 'ARI', //will give idaho instead of arkansas
         invalid4: 'State',
     }
@@ -147,7 +144,7 @@ export class testValues {
     static provinceI = {
         invalid1: '23',
         invalid2: '*^',
-        invalid3: 'Provience',
+        invalid3: 'Proviences',
         invalid4: 'ONT' // turns from Ontario to Prince Edwards
     }
     
