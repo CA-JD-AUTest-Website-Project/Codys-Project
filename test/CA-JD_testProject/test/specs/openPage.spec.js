@@ -1,4 +1,4 @@
-/*import RegisterPage from '../pageobjects/register.page.js'
+import RegisterPage from '../pageobjects/register.page.js'
 
 
 describe('My openPage application', () => {
@@ -11,4 +11,3 @@ describe('My openPage application', () => {
         
     })
 })
-*/
