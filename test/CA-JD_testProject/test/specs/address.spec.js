@@ -1,7 +1,7 @@
 /**
  * test with page objects
  */
-/*
+
 import RegisterPage from '../pageobjects/register.page.js'
 
 
@@ -17,4 +17,3 @@ xdescribe('My Address application', () => {
        //     'You logged into a secure area!')
     })
 })
-*/
