@@ -75,7 +75,7 @@ class RegisterPage extends Page {
         await this.btnSubmit.click();
     }
 */
-    async accntCreate (nameF, nameL, eMail, pWord, confirmPW, addressF, apt, country, city, state, zip, phone1, phone2, phone3, province) {     //continue in fashion, new different name for parameters being passed for setValue?
+    async accntCreate (nameF, nameL, eMail, pWord, confirmPW, addressF, apt, country, city, state, zip, phone1, phone2, phone3) {     //continue in fashion, new different name for parameters being passed for setValue?
         await this.firstNameField.setValue(nameF);  //continue in same way with last next line
         await this.lastNameField.setValue(nameL);
         await this.eMailField.setValue(eMail);
@@ -85,15 +85,13 @@ class RegisterPage extends Page {
         await this.aptSteUnitField.setValue(apt);
         await this.countryField.selectByVisibleText(country);      //Need to test with other values though
         await this.stateField.selectByVisibleText(state);            //Issues due to dropdown?
-        await this.canadaStateField.setValue(province);
         await this.cityField.setValue(city);
+        await this.usZipField.setValue(zip);
+        await this.phoneField1.setValue(phone1);
+        await this.phoneField2.setValue(phone2);
+        await this.phoneField3.setValue(phone3);
+        //await this.canadaStateField.setValue(province);
         //await this.canadaPostalField.setValue(zip);
-        //await this.usZipField.setValue(zip);
-        //await this.phoneField1.setValue(phone1);
-        //await this.phoneField2.setValue(phone2);
-        //await this.phoneField3.setValue(phone3);
-
-
 
         //await this.nextButton.click();
 
