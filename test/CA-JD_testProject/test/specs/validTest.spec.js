@@ -47,6 +47,7 @@ describe('Addressing all field on the page, this positive test suite, validTest 
       
     })
 })
+})
 //selectby visible text
 // immediately below is for Canada or other
 
