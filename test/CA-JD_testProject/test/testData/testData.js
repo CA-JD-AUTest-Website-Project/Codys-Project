@@ -84,18 +84,18 @@ export class testValues {
     
     static aptSteUnitV = {
         validDefault: '#15',
-        valid2: '2345',
-        valid3: '1234567890',
-        valid4: '123'
+        valid2: '1234567890',
+        valid3: '123'
     }
     
     static aptSteUnitI = {
-        invalid2: '26',
-        invalid3: '12345678909',
+        invalid2: '15',
+        invalid3: '123456789098', //11 chars
         invalid4: '025',
         invalid5: '3',
-        invalid6: '&15',
-        invalid7: '26'
+        invalid6: '&76',
+        invalid7: '26',
+        invalid8: '12345678909' //10 chars
     }
     
     static countryV = {
@@ -137,7 +137,10 @@ export class testValues {
     }
     
     static provinceV = {
-        validDefault: 'AB',
+        validDefault: 'AB', //remember to replace this with ontario
+            Subcountry: 'CANADA',
+            SubCity : 'Toronto',
+            SubZIP : 'K1A 0B1',
         valid2: 'A'
     }
     
