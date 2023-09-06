@@ -89,8 +89,8 @@ class RegisterPage extends Page {
         await this.phoneField1.setValue(phone1);
         await this.phoneField2.setValue(phone2);
         await this.phoneField3.setValue(phone3);
-        //await this.canadaStateField.setValue(province);
-        //await this.canadaPostalField.setValue(zip);
+        //await this.canadaStateField.setValue(province);   //canadaStateField w/ id #stateCa
+        //await this.canadaPostalField.setValue(zip);       //
 
         //await this.nextButton.click();
 

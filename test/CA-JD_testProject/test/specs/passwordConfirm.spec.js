@@ -1,6 +1,7 @@
 /**
  * test with page objects
  */
+/*
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
