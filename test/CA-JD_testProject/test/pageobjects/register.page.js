@@ -1,5 +1,3 @@
-
-
 import Page from './page.js';
 
 /**
@@ -43,7 +41,7 @@ class RegisterPage extends Page {
         return $('#stateCa');
     }
 
-    get cityField () {          //xpath: //*[@id="city"]
+    get cityField () {          //xpath: //*[@id="city"]        //third party country's city/state is just city selector
         return $('#city');
     }
     get canadaPostalField () {  //xpath: //*[@id="zip"]
@@ -57,21 +55,48 @@ class RegisterPage extends Page {
     }
     get phoneField2 () {        //xpath: //*[@id="phoneNumber2"]
         return $('#phoneNumber2');       // value maxlength="3"
-    }get phoneField3 () {       //xpath: 
+    }get phoneField3 () {       //xpath: //*[@id="phoneNumber3"]
         return $('#phoneNumber3');       // value maxlength="4"
     }
-    get  nextButton() {         //xpath: //*[@id="phoneNumber3"]
-        return $('button[type="button"]');          //type="button"  value="Next"  class= "btn isLastTabIndex"  id="register1Next"
+    get  nextButton() {         //xpath: //*[@id="register1Next"]
+        return $('//*[@id="register1Next"]');
+        //return $('button[type="button"]');          //type="button"  value="Next"  class= "btn isLastTabIndex"  id="register1Next"
     }
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
+    /*
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+    }
+*/
+    async accntCreate (nameF, nameL, eMail, pWord, confirmPW, addressF, apt, country, city, state, zip, phone1, phone2, phone3) {     //continue in fashion, new different name for parameters being passed for setValue?
+        await this.firstNameField.setValue(nameF);  //continue in same way with last next line
+        await this.lastNameField.setValue(nameL);
+        await this.eMailField.setValue(eMail);
+        await this.passwordField.setValue(pWord);
+        await this.confirmPasswordField.setValue(confirmPW);
+        await this.addressField.setValue(addressF);
+        await this.aptSteUnitField.setValue(apt);
+        await this.countryField.selectByVisibleText(country);      //Need to test with other values though
+        await this.stateField.selectByVisibleText(state);            //Issues due to dropdown?
+        await this.cityField.setValue(city);
+        await this.usZipField.setValue(zip);
+        await this.phoneField1.setValue(phone1);
+        await this.phoneField2.setValue(phone2);
+        await this.phoneField3.setValue(phone3);
+        //await this.canadaStateField.setValue(province);
+        //await this.canadaPostalField.setValue(zip);
+
+        //await this.nextButton.click();
+
+
+
+        //await this.btnSubmit.click();
     }
 
     /**
