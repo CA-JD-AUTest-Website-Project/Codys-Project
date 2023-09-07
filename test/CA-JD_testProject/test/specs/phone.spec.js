@@ -17,9 +17,10 @@ describe('Addressing three phone number fields, this positive test suite, phone 
     })
     it('will ensure validity non-default positive phone number values, test case #s', async () => {
         //unaltered, needs input changed
-        // divide by 100, then 10, then 1, assign each value to array position, as opposed to assigning full 3 char value to 1 address in array
+        // divide by 100, then 10, then 1, (modulus?) assign each value to array position, as opposed to assigning full 3 char value to 1 address in array
         //3-3-4 quantity of digits per field, similar approach?
         // when addressing number of chars in field, set value to 1234, test whether final char is 4, if not, then only allowed 3 chars? 
+        //"pop" if starts with 1?
 
         //phone1[]=input, etc; array.length(phoneX) ?=
         await RegisterPage.open()

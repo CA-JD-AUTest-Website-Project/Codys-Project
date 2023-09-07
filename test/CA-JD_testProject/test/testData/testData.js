@@ -158,17 +158,17 @@ export class testValues {
     }
     
     static zipI = {
-        invalid1: '919416803', //no idea where this value came from
+        invalid1: '919416803', //no idea where this value came from  JD: test case 85? (line 1333), IP >5 digits
         invalid2: '919',
         invalid3: '9!941',
-        invalid4: '15ü14', //seems neither of us are sure why this one exists
+        invalid4: '15ü14', //seems neither of us are sure why this one exists JD:Listed in test cases, haven't checked initial specs page
         invalid5: '9A941',
         invalid6: '9 941',
-        invalid7: '9194'
+        invalid7: '9194'        //also BVA-H Invalid, 6 chars? , not covered here
     }
     
-    static zipCanadaV = { //Note I have no idea about any of these values 
-        validDefault: 'K1A 0B1', //if somethings wrong bring it up
+    static zipCanadaV = { //Note I have no idea about any of these values JD:Acknowledged
+        validDefault: 'K1A 0B1', //if somethings wrong bring it up          JD: Acknowledged
     }
     
     static zipCanadaI = {
