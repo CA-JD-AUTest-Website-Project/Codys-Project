@@ -63,6 +63,27 @@ class RegisterPage extends Page {
         //return $('button[type="button"]');          //type="button"  value="Next"  class= "btn isLastTabIndex"  id="register1Next"
     }
 
+get joinTText() {
+    return $('//*[@id="joinTeam"]/p')
+}
+
+
+    /*get pg2Header() {
+        return $('//*[@id="register2Form"]/h2')
+    }
+*/
+/*
+    get regSolo() {
+        return $('//*[@id="solo"]/h2')
+    }
+*/
+    /*get step2Btn()  {
+        return $('//*[@id="registerBtn1"]');         //full xpath /html/body/div[5]/div/div[2]/div/div[2]/div/div/div[4]/button[2]
+        //normal xpath //*[@id="registerBtn1"]
+    }
+*/
+
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
