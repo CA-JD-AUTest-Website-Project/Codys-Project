@@ -11,9 +11,25 @@ class RegisterPage extends Page {
         return $('#firstName'); //Full Xpath: /html/body/div[5]/div/div[2]/div/div[2]/div/div/div[6]/div/div[1]/form/fieldset/fieldset[1]/input
     }                           //amended Xpath: //*[@id="firstName"]
 
+    get errorFirstName () {         //xpath     //*[@id="firstName-errorDv"]
+        return $('//*[@id="firstName-errorDv"]')                  //full xpath?        /html/body/div[13]
+                                    //id="firstName-errorDv"
+    }
+
+
     get lastNameField () {      //Xpath: //*[@id="lastName"]
         return $('#lastName');  
     }
+
+    get errorLastName () {
+        return $('//*[@id="lastName-errorDv"]')
+
+    }
+
+    get errorEMail (){
+        return $('//*[@id="emailAddress-errorDv"]')
+    }
+
     get eMailField () {         //Xpath: //*[@id="emailAddress"]
         return $('#emailAddress');
     }
@@ -21,35 +37,83 @@ class RegisterPage extends Page {
     get passwordField () {      //Xpath: //*[@id="password"]
         return $('#password');
     }
+
+    get errorPassword () {
+        return $('//*[@id="password-errorDv"]')
+    }
+
+
     get confirmPasswordField () {      //XPAth: //*[@id="confirmPassword"]
         return $('#confirmPassword');
+    }
+
+    get errorConfirm () {
+        return $('//*[@id="confirmPassword-errorDv"]')
     }
 
     get addressField () {       //xpath: //*[@id="address1"]
         return $('#address1');
     }
-    get aptSteUnitField () {    //xpath: //*[@id="address2"]
-        return $('#address2');
+
+    get errorAddress () {
+        return $('//*[@id="address1-errorDv"]')
     }
+
+    get aptSteUnitField () {    //xpath: //*[@id="address2"]
+        return $('#address2');  //full xpath   /html/body/div[5]/div/div[2]/div/div[2]/div/div/div[6]/div/div[1]/form/fieldset/fieldset[4]/input
+    }
+
+    //Need to determine a way to check for aptSteUnit to fail? Cannot fail, sooo...
+
     get countryField () {       //xpath: //*[@id="country"]
         return $('#country');
     }
+
+
+    get errorCountry () {
+        return $('//*[@id="country-errorDv"]')
+    }
+
     get stateField () {
         return $('#state');     //xpath: //*[@id="state"]
     }
+
+    get errorState () {
+        return $('//*[@id="state-errorDv"]')
+
+    }
+
     get canadaStateField () {   //xpath: //*[@id="stateCa"]
         return $('#stateCa');
     }
 
+    //No error flag from leaving Province drop-down as "Province"
+
     get cityField () {          //xpath: //*[@id="city"]        //third party country's city/state is just city selector
         return $('#city');
     }
+
+    get errorCity () {
+        return $('//*[@id="state-errorDv"]');
+    }
+
     get canadaPostalField () {  //xpath: //*[@id="zip"]
         return $('#zip');
     }
+
+    //Error flag does not generate from empty Canada Postal Field, nor Other
+/*
+    get errorCanadaZip () {
+        return $('')
+    }
+*/
     get usZipField () {         //xpath: //*[@id="zip"]
         return $('#zip');
     }
+    get errorUSZip () {
+        return $('<div id="zip-errorDv" class="errorDv" style="left: 706.5px; top: 695px;">Please enter a valid zip</div>')
+    }
+
     get phoneField1 () {        //xpath: //*[@id="phoneNumber"]
         return $('#phoneNumber');       // value maxlength="3"
     }
@@ -58,6 +122,11 @@ class RegisterPage extends Page {
     }get phoneField3 () {       //xpath: //*[@id="phoneNumber3"]
         return $('#phoneNumber3');       // value maxlength="4"
     }
+    get errorPhoneField3 () {
+        return $('//*[@id="phoneNumber3-errorDv"]')
+
+}
+
     get  nextButton() {         //xpath: //*[@id="register1Next"]
         return $('//*[@id="register1Next"]');
         //return $('button[type="button"]');          //type="button"  value="Next"  class= "btn isLastTabIndex"  id="register1Next"

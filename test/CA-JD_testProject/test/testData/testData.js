@@ -37,7 +37,8 @@ export class testValues {
     static eMailV = {
         validDefault: '<Jacksolittlé!>@gmail.com',
         valid2: 'SA@x.co',
-        valid3: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesba@gmail.com'
+        valid3: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesba@gmail.com',
+        valid4: 'prussen1ov3r@Yahoo.com'
     }
     
     static eMailI = {
@@ -56,7 +57,7 @@ export class testValues {
         invalid1: 'Womb1',
         invalid2: 'Günther#1',                 //contains first name
         invalid3: 'Have\'feld#2',              //containst last name
-        invalid4: '<Jacksolittlé!>@gmail.com', //same as email
+        invalid4: '<Jacksol1ttlé!>@gmail.com', //same as email; make sure to change email to include number to isolate the two invalid tests
         invalid5: '*wisew0mbat!*',
         invalid6: '*Wisewombat!*',
         invalid7: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3z'
