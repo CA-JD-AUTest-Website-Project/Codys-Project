@@ -6,6 +6,8 @@
 
 Test suites for Valid and Invalid US Zip codes
 
+Contents generated, clean up and documentation needed
+
 */
 
 
@@ -57,7 +59,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             
         })
     
@@ -75,7 +77,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                         await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             })
            
             it('will ensure invalidity of symbols, IP change to test case #', async () => {
@@ -91,7 +93,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                             await RegisterPage.nextButton.click()
                 await browser.pause(1000)
                 //await expect(RegisterPage.regSolo).toBeExisting()
-                await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+                await (RegisterPage.errorUSZip).toBeExisting()
                 })
 
 
@@ -108,7 +110,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                     await RegisterPage.nextButton.click()
                     await browser.pause(1000)
                     //await expect(RegisterPage.regSolo).toBeExisting()
-                    await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+                    await (RegisterPage.errorUSZip).toBeExisting()
                     })
 
                 it('will ensure invalidity of alphabetic characters, IP change to test case #', async () => {
@@ -123,7 +125,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                     await RegisterPage.nextButton.click()
                     await browser.pause(1000)
                     //await expect(RegisterPage.regSolo).toBeExisting()
-                    await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+                    await (RegisterPage.errorUSZip).toBeExisting()
                     })
 
                         it('will ensure invalidity of spaces, IP change to test case #', async () => {
@@ -138,7 +140,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                             await RegisterPage.nextButton.click()
                             await browser.pause(1000)
                             //await expect(RegisterPage.regSolo).toBeExisting()
-                            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+                            await (RegisterPage.errorUSZip).toBeExisting()
                             })
 
                             it('will ensure invalidity of edge cases, BVA-L Invalid change to test case #', async () => {
@@ -153,7 +155,7 @@ describe('Addressing the US Zip field on the page, this positive test suite, zip
                                 await RegisterPage.nextButton.click()
                                 await browser.pause(1000)
                                 //await expect(RegisterPage.regSolo).toBeExisting()
-                                await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+                                await (RegisterPage.errorUSZip).toBeExisting()
                                 })
 
 

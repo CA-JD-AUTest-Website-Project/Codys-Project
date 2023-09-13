@@ -111,7 +111,7 @@ class RegisterPage extends Page {
         return $('#zip');
     }
     get errorUSZip () {
-        return $('<div id="zip-errorDv" class="errorDv" style="left: 706.5px; top: 695px;">Please enter a valid zip</div>')
+        return $('//*[@id="zip-errorDv"]')
     }
 
     get phoneField1 () {        //xpath: //*[@id="phoneNumber"]

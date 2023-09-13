@@ -6,7 +6,10 @@
 
 Test suites for Valid and Invalid Canada Postal codes
 
-Will accept anything, does not need province set to function
+Will accept anything, does not need province set to function; is it set anyway? 
+However, province is set to AB, and as functionally required, country is set to Canada
+
+Code mostly(?) generated. Needs clean-up and documentation. Expect failure on which?
 
 */
 
@@ -58,7 +61,7 @@ describe('Addressing the Canada Postal field on the page, this positive test sui
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             
         })
 
@@ -73,7 +76,7 @@ describe('Addressing the Canada Postal field on the page, this positive test sui
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             
         })
     
@@ -88,7 +91,7 @@ describe('Addressing the Canada Postal field on the page, this positive test sui
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             
         })
 
@@ -104,7 +107,7 @@ describe('Addressing the Canada Postal field on the page, this positive test sui
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+            await (RegisterPage.errorUSZip).toBeExisting()
             
         })
 
