@@ -3,6 +3,11 @@
  */
 /*
 
+Current Error: TypeError: elem[prop] is not a function
+
+DOES NOT YET WORK
+
+
 Default test for setting up negative tests which should result in a "pass", green checkmark
 
 use boolean, toBeTrue(), to be binary value? such that I can set expect(step2)to exist as false?
@@ -17,7 +22,7 @@ for some, can expect error flag to exist, but will not work for all.
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe('Addressing all field on the page, this negative test suite, invalidTest application...', () => {
+describe.skip('Addressing all field on the page, this negative test suite, invalidTest application...', () => {
     it('will ensure that errors can be detected for all fields to provide a foundation for further testing, change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()

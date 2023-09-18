@@ -123,8 +123,16 @@ export class testValues {
         invalid3: 'Bet',
         invalid4: 'Llangofairpwllgwyngyllgogyerychwyrndrobwllllantysiliogogogogogoch'
     }
+
+
+    static cityO = {
+        validDefault: 'Chihuahua'
+    }
+
+
+
     
-    static stateV = {
+    static stateV = {       //add a canadian state for "valid state for selected nation?"
         validDefault: 'CA',
         valid2: 'VA',
         valid3: 'L'
@@ -148,7 +156,7 @@ export class testValues {
     static provinceI = {
         invalid1: '23',
         invalid2: '*^',
-        invalid3: 'Proviences',
+        invalid3: 'Provinces',      //typo corrected
         invalid4: 'ONT' // turns from Ontario to Prince Edwards
     }
     

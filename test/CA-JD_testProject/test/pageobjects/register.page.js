@@ -97,6 +97,11 @@ class RegisterPage extends Page {
         return $('//*[@id="state-errorDv"]');
     }
 
+    get cityOther () {          //xpath: //*[@id="city"]        //third party country's city/state is just city selector
+        return $('#city');
+    }
+
+
     get canadaPostalField () {  //xpath: //*[@id="zip"]
         return $('#zip');
     }
@@ -164,7 +169,7 @@ get joinTText() {
         await this.btnSubmit.click();
     }
 */
-    async accntCreate (nameF, nameL, eMail, pWord, confirmPW, addressF, apt, country, city, state, zip, phone1, phone2, phone3) {     //continue in fashion, new different name for parameters being passed for setValue?
+    async accntCreate (nameF, nameL, eMail, pWord, confirmPW, addressF, apt, country, city, state, zip, phone1, phone2, phone3, cityO) {     //continue in fashion, new different name for parameters being passed for setValue?
         await this.firstNameField.setValue(nameF);  //continue in same way with last next line
         await this.lastNameField.setValue(nameL);
         await this.eMailField.setValue(eMail);
@@ -179,14 +184,18 @@ get joinTText() {
         await this.phoneField1.setValue(phone1);
         await this.phoneField2.setValue(phone2);
         await this.phoneField3.setValue(phone3);
+        await this.cityOther.setValue(cityO);   //added to try to create non-dropdown entry
+        //can I do as above, but stateField.setValue(stateOther) as well, does it overwrite?
+        
+        //can't just add new city to data b/c it still tries to drop down
+
         //await this.canadaStateField.setValue(province);   //canadaStateField w/ id #stateCa
         //await this.canadaPostalField.setValue(zip);       //
 
+
         //await this.nextButton.click();
-
-
-
         //await this.btnSubmit.click();
+
     }
 
     /**

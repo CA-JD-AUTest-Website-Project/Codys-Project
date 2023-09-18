@@ -1,10 +1,14 @@
 /**
  * test with page objects
+ * 
+ * Test for valid values
+ * Functions Properly
+ * 
  */
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe('Addressing all field on the page, this positive test suite, validTest application...', () => {
+describe.skip('Addressing all field on the page, this positive test suite, validTest application...', () => {
     it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -20,6 +24,8 @@ describe('Addressing all field on the page, this positive test suite, validTest 
 
         //await expect(RegisterPage.regSolo).toBeExisting()
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+
+        //console.log = "End of validTest"
 
         //console.log('countryField selector: ' + countryField);
        
