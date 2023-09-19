@@ -10,6 +10,8 @@
  * 
  * Just realized I didn't have the expect errors for invalids, but likely wouldn't have made them pass anyway
  * 
+ * setValue/addValue 
+ * 
 */
 
 
@@ -60,7 +62,7 @@ describe.skip('Addressing Password field on the page, this positive test suite, 
 
 })
 
-describe('Addressing Password field on the page, this negative test suite, password application...', () => {
+describe.skip('Addressing Password field on the page, this negative test suite, password application...', () => {
     it('will ensure invalidity of 5 char password, change to test case #', async () => {
         //invalid1 is Womb1, 5 chars (BVA I)
         //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.

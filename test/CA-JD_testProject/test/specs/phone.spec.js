@@ -39,10 +39,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
 
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
-        await browser.pause(2500)
+        await browser.pause(250)
         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
         await RegisterPage.nextButton.click()
-        await browser.pause(2500)
+        await browser.pause(250)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
     })
     it('will ensure validity of "3-3-4" formatting, test case #s', async () => {
@@ -61,10 +61,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
 
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
-        await browser.pause(2500)
+        await browser.pause(250)
         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
         await RegisterPage.nextButton.click()
-        await browser.pause(2500)
+        await browser.pause(250)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
     })
 })
@@ -81,10 +81,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid1Pt1 -3
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid1Pt1, testValues.phoneI.invalid1Pt2, testValues.phoneI.invalid1Pt3)         //setting values for firstNameField? (parameter called in function)
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of less than 10 digits, IP change to test case #s', async () => {
@@ -95,10 +95,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //line 1862
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid2Pt1, testValues.phoneI.invalid2Pt2, testValues.phoneI.invalid2Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of alphabetic characters, change to test case #s or include tag', async () => {
@@ -109,10 +109,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid3 ?
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid3Pt1, testValues.phoneI.invalid3Pt2, testValues.phoneI.invalid3Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test the rejection of symbols, change to test case #s or include tag', async () => {
@@ -122,10 +122,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid4  line 2143
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid4Pt1, testValues.phoneI.invalid4Pt2, testValues.phoneI.invalid4Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of spaces, change to test case #s or include tag', async () => {
@@ -135,10 +135,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid5      line2213        "619 588 2300"
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid5Pt1, testValues.phoneI.invalid5Pt2, testValues.phoneI.invalid5Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of accents, change to test case #s or include tag', async () => {
@@ -147,10 +147,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid6     line 2227
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid6Pt1, testValues.phoneI.invalid6Pt2, testValues.phoneI.invalid6Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
 
@@ -161,10 +161,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid7     line 2171
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid7Pt1, testValues.phoneI.invalid7Pt2, testValues.phoneI.invalid7Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
 
@@ -175,10 +175,10 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //invalid8     line 2185
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(2500)
+            await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid8Pt1, testValues.phoneI.invalid8Pt2, testValues.phoneI.invalid8Pt3)  
             await RegisterPage.nextButton.click()
-            await browser.pause(2500)
+            await browser.pause(250)
             await (RegisterPage.errorPhoneField3).toBeExisting()
         })
 
