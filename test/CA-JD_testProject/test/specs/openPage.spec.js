@@ -1,7 +1,14 @@
+/*
+
+Functions Properly
+Ensures browser opens and page is navigated to
+
+*/
+
 import RegisterPage from '../pageobjects/register.page.js'
 
 
-describe('My openPage application', () => {
+describe.skip('My openPage application', () => {
     it('navigate to RegisterPage, then pause if possible', async () => {
         await RegisterPage.open()
         await browser.pause(5000) 

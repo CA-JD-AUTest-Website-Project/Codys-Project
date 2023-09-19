@@ -1,3 +1,9 @@
+/* 
+* nextButton
+*
+*/
+
+
 /**
  * test with page objects
  */
@@ -13,10 +19,12 @@ describe('Addressing all field on the page, this positive test suite, validTest 
        
 
         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
-       
+        await expect(RegisterPage.Nextbutton).toBeExisting()
+        await expect(RegisterPage.nextButton).toHaveText("Next")
         //await RegisterPage.accntCreate()
         await RegisterPage.nextButton.click()
         await browser.pause(2500)
+        await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
         //console.log('countryField selector: ' + countryField);
        
        

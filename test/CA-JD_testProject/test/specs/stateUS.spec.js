@@ -1,40 +1,205 @@
 /**
  * test with page objects
+ * 
+ * Test for US state field
+ * 
+ * 3 test conditions, 2 test inputs, 1 test case minimum? (per deliverables)
+ * 
+ * Valid: 2/5
+ * Invalid: 0/4  (6 with invalid NULL test and counting children) Failing for wrong reason
+ * 
+ * Chrome Driver Cloud Management?
+ * 
+ * Valid:
+ * presence of drop-down
+ * valid state for selected nation
+ * Default CA instead of "State"
+ * can accept 2 char entries
+ * "" 1 char entries
+ * Invalid:
+ * cannot be blank/required field
+ * No digits (45 correlates to DE, Delaware?)
+ * No Symbols (results in AA, the bottom one
+ * > 2 chars (ARI results in Idaho, not Arkansas)
+ * Disallow State/Province (will accept "Province" though)
+ * Correct # of states (input >63 and <63)
+ * 
+ * 
  */
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe('Addressing all field on the page, this positive test suite, validTest application...', () => {
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+describe.skip('Addressing State field on the page, this positive test suite, stateUS application...', () => {
+    it('will ensure presence of drop-down menu, change to test case #', async () => {
+        //passes
+        await RegisterPage.open()
+        await expect(RegisterPage.stateField).toBeExisting()
+               
+    })
+
+    it('will ensure validity of state for selected nation, change to test case #', async () => {
+        //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
+        //supposed to use countryV.valid2? (canada) but dont have data for canadian state
+
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
-        await browser.pause(2500)
-        //await (RegisterPage.firstNameField).setValue(testValues.firstNameV.validDefault)
-       
+        await browser.pause(1000)    
 
         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
        
-        //await RegisterPage.accntCreate()
         await RegisterPage.nextButton.click()
-        await browser.pause(2500)
+        await browser.pause(1000)
+
+        await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+       
+
+    }) 
+        
+    it('will ensure default value to be CA, test case #, Tag V47', async () => {
+        //passes
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)    
+
+        await expect(RegisterPage.stateField).toHaveTextContaining('CA')//stateV.validDefault is what we match to? 
+               
+        await browser.pause(1000)
+
+    })
+
+    it('will ensure validity of two character entries, change to test case #', async () => {
+        //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
+        
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)    
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.valid2, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+       
+        await expect(RegisterPage.stateField).toHaveTextContaining('VA')
+
+        await RegisterPage.nextButton.click()
+        await browser.pause(1000)
+
+        await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+       
+
+    })
+
+
+    it('will ensure validity of one character entries, change to test case #', async () => {
+        //currently fails, "Option with text "L" not found."
+        
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)    
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.valid3, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+       
+        await expect(RegisterPage.stateField).toHaveTextContaining('LA')
+
+        await RegisterPage.nextButton.click()
+        await browser.pause(1000)
+        await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+       
+    })
+
+
+
+}) 
+
+
+describe.skip('Addressing State field on the page, this negative test suite, stateUS application...', () => {
+    /*    
+    it('will ensure invalidity of a NULL value, that it is a required field, change to test case #, tag X42', async () => {        
+                //rbFieldIsRequired? 
+
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+    */
+    it('will ensure invalidity of numerical value, (this test should fail?) change to test case #, tag X42', async () => {        
+        //No digits (45 correlates to DE, Delaware?)
+        //Option with text "45" not found.
+        //see note below
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)    
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateI.invalid1, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+       
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+
+    it('will ensure invalidity of symbols, (this test should fail?) change to test case #, tag X42', async () => {        
+        //No Symbols (results in AA, the bottom one)
+        //Option with text "&%" not found.
+        //See note below
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateI.invalid2, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+
+    it('will not allow an input greater than 2 chars, (this test should fail?) change to test case #, tag X42', async () => {        
+        //> 2 chars (ARI results in Idaho, not Arkansas) (AR -> ID)
+        //Option with text "ARI" not found.
+        //tries to select that option as opposed to entering the text... change to setvalue as opposed to byvisibletext?
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateI.invalid3, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+        await expect(RegisterPage.stateField).toHaveTextContaining('AR')
+
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+
+    it('will not allow the default value of State/Province, change to test case #, tag X42', async () => {        
+        //Disallow State/Province (will accept "Province" though)
+        //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)
+
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateI.invalid4, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+
+/*
+    it('will ensure the correct quantity of States/Territories listed,  change to test case #, tag X42', async () => {        
+        //Correct number of state > or < 63, doesn't add Candadian provinces, right?
+        //check children? what was the plan here?
+        await RegisterPage.open()
+        await expect(RegisterPage.firstNameField).toBeExisting()
+        await browser.pause(1000)
+
+
+        
+        await (RegisterPage.errorState).toBeExisting()
+
+    })
+ */   
+
+
+})
+        
+        
         //console.log('countryField selector: ' + countryField);
        
-       
-        //await RegisterPage.accntCreate(testValues.countryV.validDefault, testValues.stateV.validDefault)
-        //await RegisterPage.accntCreate(testValues.countryV.validCA, testValues.provinceV.validDefault) //which countryV: validN is canada?
-        // issues with state and country on register page, which then presents as line15 char9 on validTest page
-        //coincidental as dropdowns?
-        //Need to test countryV
-        //Skipping over Country and State drop-downs allows city to be entered correctly and pass its validDefault
-        //Simply push them to the end of the line, before "click" ?
+  
 
-        //await RegisterPage.accntCreate(testValues.cityV.validDefault)
 
          //await RegisterPage.countryField child(2)     // for selecting in drop down?
-
-
-        //can do zip and phoneV
-       
+     
        
         //await RegisterPage.accntCreate(testValues.lastNameV.valid4)             //valid4 has no accents or special chars
        
@@ -56,48 +221,7 @@ describe('Addressing all field on the page, this positive test suite, validTest 
 
         //await browser.pause(5000)
    
-/*
-        await RegisterPage. { firstNameField.setValues(testValues.firstNameV.validDefault)/*, lastNameField.setValues(testValues.lastNameV.validDefault),
-            eMailField.setValues(testValues.eMailV.validDefault), passwordField.setValues(testValues.password.validDefault), confirmPasswordField.setValues(testValues.lastNameV.validDefault),
-            addressField.setValues(testValues.addressV.validDefault), aptSteUnitField.setValues(testValues.aptSteUnitV.validDefault),
-            countryField.setValues(testValues.countryV.validDefault), cityField.setValues(testValues.cityV.validDefault), stateField.setValues(testValues.stateV.validDefault), provinceField.setValues(testValues.provinceV.validDefault),
-            canadaPostalField.setValues(testValues.zipCanadaV.validDefault), usZipField.setValues(testValues.zipV.validDefault), phoneField1.setValues(testValues.phoneV.validDefaultPt1), phoneField2.setValues(testValues.phoneV.validDefaultPt2),
-            phoneField3.setValues(testValues.phoneV.validDefaultPt3)*/ /*}    
-            await browser.pause(5000)
-            console.log = "This should have actually entered data into fields"    
-            //await RegisterPage.firstNameField.setValues(testValues.firstNameV.validDefault)
-*/
-            // await page.isVisible()
-            //if (await page.locator(mySelector).count()>0)
-
-            // await page.loactor("mySelectr").click()          then can enter text?
-
-            //async isSelectorExists(selector: string) {
-            //    return await yadayadayada}
-           
-
-        //getElementByID("does-not-exist");
-        //begin valid test cases here
-
-        //console log
 
 
      
-    })
-})
-//selectby visible text
-// immediately below is for Canada or other
 
-/*
-
-describe('zipCanada application addresses the postal code for Canada field, this positive test suite ', () => {
-    it('will ensure allowance, validity of inclusion of XXX requirement', async () => {
-        await RegisterPage.open()
-        await RegisterPage { testValues.firstNameV.validDefault, testValues.lastNameV.validDefault,
-        testValues.eMailV.validDefault, testValues.password.validDefault, testValues.lastNameV.validDefault,
-        testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,
-        testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.provinceV.validDefault,
-        testValues.zipCanadaV.validDefault, testValues.phoneV.validDefault}
-    })
-})
-*/

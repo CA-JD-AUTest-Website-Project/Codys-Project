@@ -37,7 +37,8 @@ export class testValues {
     static eMailV = {
         validDefault: '<Jacksolittlé!>@gmail.com',
         valid2: 'SA@x.co',
-        valid3: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesba@gmail.com'
+        valid3: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesba@gmail.com',
+        valid4: 'prussen1ov3r@Yahoo.com'
     }
     
     static eMailI = {
@@ -56,7 +57,7 @@ export class testValues {
         invalid1: 'Womb1',
         invalid2: 'Günther#1',                 //contains first name
         invalid3: 'Have\'feld#2',              //containst last name
-        invalid4: '<Jacksolittlé!>@gmail.com', //same as email
+        invalid4: '<Jacksol1ttlé!>@gmail.com', //same as email; make sure to change email to include number to isolate the two invalid tests
         invalid5: '*wisew0mbat!*',
         invalid6: '*Wisewombat!*',
         invalid7: 'Hackjobmcgeehaveafieldinthemorninglikeinyeoldentimesbarleymower3z'
@@ -122,8 +123,16 @@ export class testValues {
         invalid3: 'Bet',
         invalid4: 'Llangofairpwllgwyngyllgogyerychwyrndrobwllllantysiliogogogogogoch'
     }
+
+
+    static cityO = {
+        validDefault: 'Chihuahua'
+    }
+
+
+
     
-    static stateV = {
+    static stateV = {       //add a canadian state for "valid state for selected nation?"
         validDefault: 'CA',
         valid2: 'VA',
         valid3: 'L'
@@ -147,7 +156,7 @@ export class testValues {
     static provinceI = {
         invalid1: '23',
         invalid2: '*^',
-        invalid3: 'Proviences',
+        invalid3: 'Provinces',      //typo corrected
         invalid4: 'ONT' // turns from Ontario to Prince Edwards
     }
     
@@ -158,17 +167,17 @@ export class testValues {
     }
     
     static zipI = {
-        invalid1: '919416803', //no idea where this value came from
+        invalid1: '919416803', //no idea where this value came from  JD: test case 85? (line 1333), IP >5 digits
         invalid2: '919',
         invalid3: '9!941',
-        invalid4: '15ü14', //seems neither of us are sure why this one exists
+        invalid4: '15ü14', //seems neither of us are sure why this one exists JD:Listed in test cases, haven't checked initial specs page
         invalid5: '9A941',
         invalid6: '9 941',
-        invalid7: '9194'
+        invalid7: '9194'        //also BVA-H Invalid, 6 chars? , not covered here
     }
     
-    static zipCanadaV = { //Note I have no idea about any of these values 
-        validDefault: 'K1A 0B1', //if somethings wrong bring it up
+    static zipCanadaV = { //Note I have no idea about any of these values JD:Acknowledged
+        validDefault: 'K1A 0B1', //if somethings wrong bring it up          JD: Acknowledged
     }
     
     static zipCanadaI = {
@@ -198,15 +207,44 @@ export class testValues {
     static phoneV = {
         validDefaultPt1: '858',
         validDefaultPt2: '588',
-        validDefaultPt3: '2300'
-    
+        validDefaultPt3: '2300',
+        valid2Pt1: '',
+        valid2Pt2: '',
+        valid2Pt3: '',
+        valid3Pt1: '',
+        valid3Pt2: '',
+        valid3Pt3: '',
+        valid4Pt1: '',
+        valid4Pt2: '',
+        valid4Pt3: ''
     
     }
     
     static phoneI = {
-        invalid1: ''
-    
-    
+        invalid1Pt1: '858',
+        invalid1Pt2: '588',
+        invalid1Pt3: '230012',  //12 digits total IP
+        invalid2Pt1: '858',
+        invalid2Pt2: '588',
+        invalid2Pt3: '23',    //8 digits total IP
+        invalid3Pt1: '858',
+        invalid3Pt2: 'ABC',
+        invalid3Pt3: 'DEFG',        //disallow letters
+        invalid4Pt1: '567',
+        invalid4Pt2: '891',
+        invalid4Pt3: '234&',             //disallow symbols
+        invalid5Pt1: '619',
+        invalid5Pt2: ' 58',
+        invalid5Pt3: '8 23',            //disallow spaces
+        invalid6Pt1: '858',
+        invalid6Pt2: '588',
+        invalid6Pt3: '230ü',             //disallow accents
+        invalid7Pt1: '858',
+        invalid7Pt2: '588',
+        invalid7Pt3: '23001',            //disallow 11
+        invalid8Pt1: '858',
+        invalid8Pt2: '588',
+        invalid8Pt3: '230'             //disallow 9
     }
     }
     
