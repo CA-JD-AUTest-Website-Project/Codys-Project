@@ -207,15 +207,44 @@ export class testValues {
     static phoneV = {
         validDefaultPt1: '858',
         validDefaultPt2: '588',
-        validDefaultPt3: '2300'
-    
+        validDefaultPt3: '2300',
+        valid2Pt1: '',
+        valid2Pt2: '',
+        valid2Pt3: '',
+        valid3Pt1: '',
+        valid3Pt2: '',
+        valid3Pt3: '',
+        valid4Pt1: '',
+        valid4Pt2: '',
+        valid4Pt3: ''
     
     }
     
     static phoneI = {
-        invalid1: ''
-    
-    
+        invalid1Pt1: '858',
+        invalid1Pt2: '588',
+        invalid1Pt3: '230012',  //12 digits total IP
+        invalid2Pt1: '858',
+        invalid2Pt2: '588',
+        invalid2Pt3: '23',    //8 digits total IP
+        invalid3Pt1: '858',
+        invalid3Pt2: 'ABC',
+        invalid3Pt3: 'DEFG',        //disallow letters
+        invalid4Pt1: '567',
+        invalid4Pt2: '891',
+        invalid4Pt3: '234&',             //disallow symbols
+        invalid5Pt1: '619',
+        invalid5Pt2: ' 58',
+        invalid5Pt3: '8 23',            //disallow spaces
+        invalid6Pt1: '858',
+        invalid6Pt2: '588',
+        invalid6Pt3: '230ü',             //disallow accents
+        invalid7Pt1: '858',
+        invalid7Pt2: '588',
+        invalid7Pt3: '23001',            //disallow 11
+        invalid8Pt1: '858',
+        invalid8Pt2: '588',
+        invalid8Pt3: '230'             //disallow 9
     }
     }
     

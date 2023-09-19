@@ -4,7 +4,7 @@
  * have not tested
  * 
  * Valid: X/4 ()
- * Invalid: X/4 (6 for IPs)
+ * Invalid: X/4 (6 for)
  * 
  * Errors?
  * 
