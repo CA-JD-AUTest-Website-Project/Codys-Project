@@ -1,6 +1,7 @@
 /* 
 * nextButton
-*
+*Valid: 1/1
+* Functions Properly
 */
 
 
@@ -10,8 +11,8 @@
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe('Addressing all field on the page, this positive test suite, validTest application...', () => {
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+describe('Addressing the Next button on the page, this positive test suite, nextButton application...', () => {
+    it('will ensure validity of function of button, change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(2500)
@@ -19,8 +20,8 @@ describe('Addressing all field on the page, this positive test suite, validTest 
        
 
         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
-        await expect(RegisterPage.Nextbutton).toBeExisting()
-        await expect(RegisterPage.nextButton).toHaveText("Next")
+        await expect(RegisterPage.nextButton).toBeExisting()
+        await expect(RegisterPage.nextButton).toHaveValueContaining("Next")
         //await RegisterPage.accntCreate()
         await RegisterPage.nextButton.click()
         await browser.pause(2500)
