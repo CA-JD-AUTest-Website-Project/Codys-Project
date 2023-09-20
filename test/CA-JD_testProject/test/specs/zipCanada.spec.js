@@ -3,10 +3,10 @@
  */
 
 /*
-
+zipCanada accepts everything, do not expect flags, invalid should all fail
 Valid 0/1
-Invalid 0/4
-
+Invalid 0/4 Correct
+// change to errorUSZip?
 Error: Option with text "AB" not found. (valid format test)
 "" for all invalid as well
 
@@ -31,7 +31,7 @@ Code mostly(?) generated. Needs clean-up and documentation. Expect failure on wh
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe.skip('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
+describe('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
     it('will ensure validity of format, EP change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -72,7 +72,7 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             
         })
 
@@ -87,7 +87,7 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             
         })
     
@@ -102,7 +102,7 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             
         })
 
@@ -118,7 +118,7 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             
         })
 

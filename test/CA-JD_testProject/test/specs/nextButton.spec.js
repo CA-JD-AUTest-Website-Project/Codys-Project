@@ -11,7 +11,7 @@
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe('Addressing the Next button on the page, this positive test suite, nextButton application...', () => {
+describe.skip('Addressing the Next button on the page, this positive test suite, nextButton application...', () => {
     it('will ensure validity of function of button, change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()

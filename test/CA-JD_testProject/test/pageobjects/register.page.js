@@ -184,7 +184,7 @@ get joinTText() {
         await this.phoneField1.setValue(phone1);
         await this.phoneField2.setValue(phone2);
         await this.phoneField3.setValue(phone3);
-        await this.cityOther.setValue(cityO);   //added to try to create non-dropdown entry
+        //await this.cityOther.setValue(cityO);  //Creates setValue/addValue with all(?) tests?  added to try to create non-dropdown entry
         //can I do as above, but stateField.setValue(stateOther) as well, does it overwrite?
         
         //can't just add new city to data b/c it still tries to drop down
