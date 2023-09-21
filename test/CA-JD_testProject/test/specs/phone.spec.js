@@ -1,10 +1,14 @@
 /**
  * test with page objects
  * 
- * Not yet run 
+ * Same ERROR: Cannot read properties of undefined (reading 'trim')
+ * Removes whitespace around the string?
  * 
- * Valid: X/2  
- * Invalid: Y/10
+ * Need to enter data in testData
+ * 
+ * 
+ * Valid: 0/2  
+ * Invalid: 0/10        (should be 2 false negatives)
  * 
  * 1 VP, 2 IP, 2 BVA-I, 2 BVA-V
  * 10 cases min (w/o combined parameters)
@@ -36,6 +40,7 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
         //uses valid default, but should it?
         //10 digit BVA-V H&L?    line 1652?
         //default or valid2Pt1?
+        //Cannot read properties of undefined (reading 'trim')
 
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -57,6 +62,7 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
 
         //format, VP 3-3-4 
         // valid3Pt?  line 1638 "858-588-2300" and then expect failure? 
+        //Cannot read properties of undefined (reading 'trim')
 
 
         await RegisterPage.open()
@@ -77,15 +83,16 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //uses testData ##   title invalid1-1? for first test, field 1?
             //not greater than 10 digits (w/0 leading 1? etc) (IP), 12 digits; 858588230012 (excel line 2311) (includes a leading 1 there)
             //should pass even though invalid data b/c won't accept additional digits?
-            //false positive
+            //false negative? will fail to generate error flag though it should
             //invalid1Pt1 -3
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid1Pt1, testValues.phoneI.invalid1Pt2, testValues.phoneI.invalid1Pt3)         //setting values for firstNameField? (parameter called in function)
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of less than 10 digits, IP change to test case #s', async () => {
             //changed
@@ -93,13 +100,14 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //should fail (thus pass) due to insufficient digits in field
             //invalid2Pt1 - 3
             //line 1862
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid2Pt1, testValues.phoneI.invalid2Pt2, testValues.phoneI.invalid2Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of alphabetic characters, change to test case #s or include tag', async () => {
             // changed
@@ -107,65 +115,71 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //include check for spaces and accents?
             //line 2129
             //invalid3 ?
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid3Pt1, testValues.phoneI.invalid3Pt2, testValues.phoneI.invalid3Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test the rejection of symbols, change to test case #s or include tag', async () => {
             //changed
             //disallow symbols; check that each char in array is 1-0, as opposed to detecting alpha or symbols?
             //include check for spaces and accents?
             //invalid4  line 2143
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid4Pt1, testValues.phoneI.invalid4Pt2, testValues.phoneI.invalid4Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of spaces, change to test case #s or include tag', async () => {
             //changed
             //disallow Spaces; check that each char in array is 1-0, as opposed to detecting alpha or symbols?
             //include check for spaces and accents?
             //invalid5      line2213        "619 588 2300"
+            //because of spaces, might trim() automatically?
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid5Pt1, testValues.phoneI.invalid5Pt2, testValues.phoneI.invalid5Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
         it('will test rejection of accents, change to test case #s or include tag', async () => {
             //changed
             //disallow accents  
             //invalid6     line 2227
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid6Pt1, testValues.phoneI.invalid6Pt2, testValues.phoneI.invalid6Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
 
         it('will test rejection of 11 characters, BVA-I change to test case #s or include tag', async () => {
             //changed
             //disallow 11 (BVA-I)
-            //should false-positive? (won't accept 11th character)  
+            //should false-negative? (won't accept 11th character, so no error, so "fails")
             //invalid7     line 2171
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid7Pt1, testValues.phoneI.invalid7Pt2, testValues.phoneI.invalid7Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
 
         it('will test rejection of 9 characters, BVA-I change to test case #s or include tag', async () => {
@@ -173,13 +187,14 @@ describe.skip('Addressing three phone number fields, this positive test suite, p
             //disallow 9 (BVA-I)
             //should fail (thus pass)  
             //invalid8     line 2185
+            //Cannot read properties of undefined (reading 'trim')
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(250)
             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.validDefault, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipV.validDefault, testValues.phoneI.invalid8Pt1, testValues.phoneI.invalid8Pt2, testValues.phoneI.invalid8Pt3)  
             await RegisterPage.nextButton.click()
             await browser.pause(250)
-            await (RegisterPage.errorPhoneField3).toBeExisting()
+            await expect(RegisterPage.errorPhoneField3).toBeExisting()
         })
 
 })

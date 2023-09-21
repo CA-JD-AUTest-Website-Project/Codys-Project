@@ -1,10 +1,13 @@
 /**
  * 
- * nameLast, need to generate content, describe it statements
- * have not tested
+ * nameLast,
  * 
- * Valid: X/4 ()
- * Invalid: X/4 (6 for)
+ * ALMOST functions correctly, check 64 char
+ * 
+ * Required field but will accept any character type except "space", no min count. max count?
+ * 
+ * Valid: 3/4 ()
+ * Invalid: 1/4 (6 for; 3 false negatives)
  * 
  * Errors?
  * 
@@ -17,7 +20,7 @@ import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
 describe.skip('Addressing Last Name field on the page, this positive test suite, nameLast application...', () => {
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of hyphens, change to test case #', async () => {
         //valid2
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -33,7 +36,7 @@ describe.skip('Addressing Last Name field on the page, this positive test suite,
      
     })
 
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of the use of accents, change to test case #', async () => {
         //valid3
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -48,7 +51,7 @@ describe.skip('Addressing Last Name field on the page, this positive test suite,
 
      
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of an entry with a minimum character count of 3, change to test case #', async () => {
         //valid4
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -63,8 +66,9 @@ describe.skip('Addressing Last Name field on the page, this positive test suite,
 
      
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of a 64 character entry, change to test case #', async () => {
         //valid5
+        //fails. check data? 
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -82,9 +86,10 @@ describe.skip('Addressing Last Name field on the page, this positive test suite,
 })
 
 
-describe.skip('Addressing all field on the page, this negative test suite, nameLast application...', () => {
-    it('will ensure invalidity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+describe.skip('Addressing the Last Name field on the page, this negative test suite, nameLast application...', () => {
+    it('will ensure invalidity of a 2 character entry, BVA-Invalid L change to test case #', async () => {
         //invalid1
+        //does not generate error, false negative
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -94,11 +99,12 @@ describe.skip('Addressing all field on the page, this negative test suite, nameL
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorLastName).toBeExisting()
+        await expect(RegisterPage.errorLastName).toBeExisting()
 
     })
-    it('will ensure invalidity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of digits, change to test case #', async () => {
         //invalid2
+        //does not generate error, false negative
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -108,11 +114,12 @@ describe.skip('Addressing all field on the page, this negative test suite, nameL
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorLastName).toBeExisting()
+        await expect(RegisterPage.errorLastName).toBeExisting()
 
     })
-    it('will ensure invalidity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of the inclusion of a symbol, change to test case #', async () => {
         //invalid3
+        //does not generate error, false negative
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -122,10 +129,10 @@ describe.skip('Addressing all field on the page, this negative test suite, nameL
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorLastName).toBeExisting()
+        await expect(RegisterPage.errorLastName).toBeExisting()
 
     })
-    it('will ensure invalidity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of a length exceding 64 chars, IP change to test case #', async () => {
         //invalid4
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -136,7 +143,7 @@ describe.skip('Addressing all field on the page, this negative test suite, nameL
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorLastName).toBeExisting()
+        await expect(RegisterPage.errorLastName).toBeExisting()
 
     })
 

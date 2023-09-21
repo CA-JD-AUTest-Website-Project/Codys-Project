@@ -2,11 +2,12 @@
 *
 *city, copied, needs content,etc
 *
+*(ALMOST?) Functions Properly
 *
-*not yet tested
+*allows all sorts of stuff (digits,symbols)
 *
-*Valid: X/4     () 
-*Invalid: X/4   ()
+*Valid: 3/4     (64 char fails, check data?) 
+*Invalid: 0/4   (4 false negatives)
 *
 */
 
@@ -14,8 +15,8 @@
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe.skip('Addressing City field on the page, this positive test suite, email application...', () => {
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+describe.skip('Addressing City field on the page, this positive test suite, city application...', () => {
+    it('will ensure validity of accents, change to test case #', async () => {
         //valid2
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -29,7 +30,7 @@ describe.skip('Addressing City field on the page, this positive test suite, emai
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
 
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of hyphen usage, change to test case #', async () => {
         //valid3
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -43,7 +44,7 @@ describe.skip('Addressing City field on the page, this positive test suite, emai
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
 
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of a minimum character length of 4, change to test case #', async () => {
         //valid4
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -57,8 +58,9 @@ describe.skip('Addressing City field on the page, this positive test suite, emai
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
 
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure validity of a 64 character string maximum, change to test case #', async () => {
         //valid5
+        //fails but check data?
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -74,9 +76,10 @@ describe.skip('Addressing City field on the page, this positive test suite, emai
 })
 
 
-describe.skip('Addressing City field on the page, this negative test suite, email application...', () => {
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+describe.skip('Addressing City field on the page, this negative test suite, city application...', () => {
+    it('will ensure invalidity of symbols, change to test case #', async () => {
         //invalid1
+        //false negative
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -86,11 +89,12 @@ describe.skip('Addressing City field on the page, this negative test suite, emai
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorCity).toBeExisting()
+        await expect(RegisterPage.errorCity).toBeExisting()
      
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of the inclusion of digits, change to test case #', async () => {
         //invalid2
+        //no flag, false negative?
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -100,11 +104,12 @@ describe.skip('Addressing City field on the page, this negative test suite, emai
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorCity).toBeExisting()
+        await expect(RegisterPage.errorCity).toBeExisting()
      
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of a character length below 4, change to test case #', async () => {
         //invalid3
+        //no flag, false negative
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -114,11 +119,12 @@ describe.skip('Addressing City field on the page, this negative test suite, emai
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorCity).toBeExisting()
+        await expect(RegisterPage.errorCity).toBeExisting()
      
     })
-    it('will ensure validity of baseline positive values to provide a foundation for further testing, change to test case #', async () => {
+    it('will ensure invalidity of a character length exceding 64, change to test case #', async () => {
         //invalid4
+        //no flag? false negative? check data?
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -128,7 +134,7 @@ describe.skip('Addressing City field on the page, this negative test suite, emai
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorCity).toBeExisting()
+        await expect(RegisterPage.errorCity).toBeExisting()
      
     })
 })

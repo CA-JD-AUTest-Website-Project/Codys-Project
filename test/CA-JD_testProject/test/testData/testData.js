@@ -89,8 +89,8 @@ export class testValues {
         valid3: '123'
     }
     
-    static aptSteUnitI = {
-        invalid2: '15',
+    static aptSteUnitI = {      //only 6 invalids in reg test case excel
+        invalid2: '15',     //same as invalid7?
         invalid3: '123456789098', //11 chars
         invalid4: '025',
         invalid5: '3',

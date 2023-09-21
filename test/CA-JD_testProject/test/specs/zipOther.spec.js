@@ -6,7 +6,7 @@
 
 /*
 
-Valid: Does NOT Function  5/5 pass
+Valid: Does Function  5/5 pass
 Invalid: Tests Function Properly 0/5 pass (Impossible to pass due because error flag will not generate for "other" countries)
 
 To Do: create a cityO setValue instead of selectByVisibleText entry for city/state, id=city

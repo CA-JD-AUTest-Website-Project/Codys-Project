@@ -8,6 +8,8 @@
  * Valid: 2/5
  * Invalid: 0/4  (6 with invalid NULL test and counting children) Failing for wrong reason
  * 
+ * //Cannot read properties of undefined (reading 'trim')  for negative default state/province input
+ * 
  * Chrome Driver Cloud Management?
  * 
  * Valid:
@@ -40,7 +42,7 @@ describe.skip('Addressing State field on the page, this positive test suite, sta
     it('will ensure validity of state for selected nation, change to test case #', async () => {
         //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
         //supposed to use countryV.valid2? (canada) but dont have data for canadian state
-
+        //NOW: Cannot read properties of undefined (reading 'trim')
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)    
@@ -89,6 +91,8 @@ describe.skip('Addressing State field on the page, this positive test suite, sta
 
     it('will ensure validity of one character entries, change to test case #', async () => {
         //currently fails, "Option with text "L" not found."
+        //because searching dropdown for that specific option, not presence of char. 
+        //expect to fail? else need different method/approach
         
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -134,7 +138,8 @@ describe.skip('Addressing State field on the page, this negative test suite, sta
 
     it('will ensure invalidity of symbols, (this test should fail?) change to test case #, tag X42', async () => {        
         //No Symbols (results in AA, the bottom one)
-        //Option with text "&%" not found.
+        //Option with text "&%" not found.   so it passes? 
+        //Could allow a symbol if it matched exactly, "C#" for instance
         //See note below
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -148,7 +153,7 @@ describe.skip('Addressing State field on the page, this negative test suite, sta
 
     it('will not allow an input greater than 2 chars, (this test should fail?) change to test case #, tag X42', async () => {        
         //> 2 chars (ARI results in Idaho, not Arkansas) (AR -> ID)
-        //Option with text "ARI" not found.
+        //Option with text "ARI" not found.    because it does not see it, it passes, right? or wrong reason? 
         //tries to select that option as opposed to entering the text... change to setvalue as opposed to byvisibletext?
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
@@ -162,6 +167,7 @@ describe.skip('Addressing State field on the page, this negative test suite, sta
     })
 
     it('will not allow the default value of State/Province, change to test case #, tag X42', async () => {        
+        //Cannot read properties of undefined (reading 'trim')
         //Disallow State/Province (will accept "Province" though)
         //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
         await RegisterPage.open()
