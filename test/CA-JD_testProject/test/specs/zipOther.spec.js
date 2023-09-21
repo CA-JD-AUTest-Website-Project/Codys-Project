@@ -1,11 +1,13 @@
 /**
- * test with page objects
- */
+* test with page objects
+*All INVALID will fail because zipOther will accept ANY input 
+*
+*/
 
 /*
 
-Valid: Does NOT Function  0/5 pass
-Invalid: Does NOT Function 0/5 pass
+Valid: Does NOT Function  5/5 pass
+Invalid: Tests Function Properly 0/5 pass (Impossible to pass due because error flag will not generate for "other" countries)
 
 To Do: create a cityO setValue instead of selectByVisibleText entry for city/state, id=city
     can use cityV.validDefault as data for it
@@ -32,7 +34,7 @@ Error: Option with text "^(`O')^" not found.
 
 Error is at state? If so, because using selectby visible as if were dropdown as opposed to setvalue as its an empty field
 Problem for ALL invalids? YES, all VALID and INVALID
-Create new stateV valid4? that is for filed entry like...  Chihuaua state? 
+Create new stateV valid4? that is for filled entry like...  Chihuaua state? 
 Will currently use stateV validDefault ("CA") but use it in a field instead of a dropdown?
 For "other" country's city/state id=city, presumably same xpath as city? 
 So, remove state parameter being passed from accntCreate when being called here? No, didnt work, right?
@@ -68,8 +70,8 @@ describe.skip('Addressing the Postal field on the pagewhen neither Canada nor th
         await expect(RegisterPage.firstNameField).toBeExisting()
         //await browser.pause(1000)
              
-        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
-        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
@@ -81,8 +83,8 @@ describe.skip('Addressing the Postal field on the pagewhen neither Canada nor th
         await expect(RegisterPage.firstNameField).toBeExisting()
         //await browser.pause(1000)
              
-        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
-        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
@@ -94,8 +96,8 @@ describe.skip('Addressing the Postal field on the pagewhen neither Canada nor th
         await expect(RegisterPage.firstNameField).toBeExisting()
         //await browser.pause(1000)
              
-        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
-        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
@@ -107,8 +109,8 @@ describe.skip('Addressing the Postal field on the pagewhen neither Canada nor th
         await expect(RegisterPage.firstNameField).toBeExisting()
         //await browser.pause(1000)
              
-        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid5, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
-        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid5, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid5, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid5, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
@@ -120,8 +122,8 @@ describe.skip('Addressing the Postal field on the pagewhen neither Canada nor th
         await expect(RegisterPage.firstNameField).toBeExisting()
         //await browser.pause(1000)
              
-        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid6, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
-        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid6, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.stateV.validDefault, testValues.zipOtherV.valid6, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
+        //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.cityO.validDefault, testValues.zipOtherV.valid6, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
@@ -140,7 +142,7 @@ describe.skip('Addressing the Postal field on the page when neither Canada nor t
         //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.zipOtherI.invalid1, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
     })
 
     it('will ensure invalidity of high invalid boundary value, change to test case #', async () => {
@@ -153,7 +155,7 @@ describe.skip('Addressing the Postal field on the page when neither Canada nor t
         //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.zipOtherI.invalid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
     })
 
     it('will ensure invalidity of low invalid equivalent partion value, change to test case #', async () => {
@@ -166,7 +168,7 @@ describe.skip('Addressing the Postal field on the page when neither Canada nor t
         //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.zipOtherI.invalid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
     })
 
     it('will ensure invalidity of high invalid equivalent partion value, change to test case #', async () => {
@@ -179,7 +181,7 @@ describe.skip('Addressing the Postal field on the page when neither Canada nor t
         //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.zipOtherI.invalid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
     })
 
     it('will ensure invalidity of symbols, change to test case #', async () => {
@@ -192,7 +194,7 @@ describe.skip('Addressing the Postal field on the page when neither Canada nor t
         //await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid3, testValues.cityV.validDefault, testValues.zipOtherI.invalid5, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)
         await RegisterPage.nextButton.click()
         //await browser.pause(1000)
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
     })
 
 })

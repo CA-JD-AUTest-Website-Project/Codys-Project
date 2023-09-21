@@ -1,13 +1,15 @@
 /**
  * test with page objects
- */
-
+ Fucntions Properly (issue with elem[prop] not a function solved by including FORGOTTEN expect.)
+*/
 /*
 
 Test suites for Valid and Invalid US Zip codes
 
 Valid functions 2/2 passing
-Invalid Does NOT Function  x/7
+Invalid Does NOT Function  7/7
+
+SetValue/addValue string.number value issues
 
 Contents generated, clean up and documentation needed
 
@@ -68,7 +70,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
         //await expect(RegisterPage.regSolo).toBeExisting()
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()            //forgot "expect"
         
     })
     
@@ -86,7 +88,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
                     await RegisterPage.nextButton.click()
         await browser.pause(1000)
         //await expect(RegisterPage.regSolo).toBeExisting()
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
         })
            
     it('will ensure invalidity of symbols, IP change to test case #', async () => {
@@ -102,7 +104,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
                     await RegisterPage.nextButton.click()
         await browser.pause(1000)
         //await expect(RegisterPage.regSolo).toBeExisting()
-        await (RegisterPage.errorUSZip).toBeExisting()
+        await expect(RegisterPage.errorUSZip).toBeExisting()
         })
 
 
@@ -119,7 +121,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             })
 
         it('will ensure invalidity of alphabetic characters, IP change to test case #', async () => {
@@ -134,7 +136,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             })
 
         it('will ensure invalidity of spaces, IP change to test case #', async () => {
@@ -149,7 +151,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             })
 
         it('will ensure invalidity of edge cases, BVA-L Invalid change to test case #', async () => {
@@ -164,7 +166,7 @@ describe.skip('Addressing the US Zip field on the page, this negative test suite
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await (RegisterPage.errorUSZip).toBeExisting()
+            await expect(RegisterPage.errorUSZip).toBeExisting()
             })
 
 
