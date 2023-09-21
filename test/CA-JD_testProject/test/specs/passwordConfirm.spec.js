@@ -2,8 +2,10 @@
  * 
  * Test for Password matching
  * 
- * Valid: 0/1
- * Invalid: 0/1
+ * Functions Properly
+ * 
+ * Valid: 1/1
+ * Invalid: 1/1
  * 
  * Just 1 positive and negative test? 
  * 
@@ -17,6 +19,7 @@ describe.skip('Addressing Confirm Password field on the page, this positive test
     it('will ensure validity of a matching password as an accepted entry, change to test case #', async () => {
         //validDefault is "*Wisew0mbat!*"
         //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
+        // now returns Cannot read properties of undefined (reading 'trim')
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -41,6 +44,7 @@ describe.skip('Addressing Confirm Password field on the page, this negative test
     it('will ensure invalidity of a non matching password, change to test case #', async () => {
         //invalid1 is Womba1, as is passwordV valid2 so be careful
         //The setValue/addValue command only take string or number values. If you like to use special characters, use the "keys" command.
+        //Now: Cannot read properties of undefined (reading 'trim')
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -50,7 +54,7 @@ describe.skip('Addressing Confirm Password field on the page, this negative test
         await RegisterPage.nextButton.click()
         await browser.pause(1000)
 
-        await (RegisterPage.errorConfirm).toBeExisting()
+        await expect(RegisterPage.errorConfirm).toBeExisting()
 
      
 

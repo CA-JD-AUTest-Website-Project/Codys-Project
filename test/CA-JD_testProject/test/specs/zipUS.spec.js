@@ -7,7 +7,7 @@
 Test suites for Valid and Invalid US Zip codes
 
 Valid functions 2/2 passing
-Invalid Does NOT Function  7/7
+Invalid   7/7
 
 SetValue/addValue string.number value issues
 
