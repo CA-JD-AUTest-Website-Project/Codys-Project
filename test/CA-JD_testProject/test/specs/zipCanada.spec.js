@@ -5,10 +5,12 @@
  * 
  */
 
+//Works?
+
 /*
-zipCanada accepts everything, do not expect flags, invalid should all fail
+zipCanada accepts everything (even spaces?), do not expect flags, invalid should all fail (not generate flags)
 Valid 0/1
-Invalid 0/4 Correct-ish?
+Invalid 0/4 Correct-ish? result, wrong reason
 // change to errorUSZip?
 Error: Option with text "AB" not found. (valid format test)
 same for all invalid as well
@@ -25,6 +27,12 @@ However, province is set to AB, and as functionally required, country is set to 
 
 Code mostly(?) generated. Needs clean-up and documentation. Expect failure on which?
 
+Both positive and negative
+ERROR: Malformed type for "elementId" parameter of command elementClick
+Expected: string
+Actual: null
+
+
 */
 
 //zipCanadaV.data
@@ -34,8 +42,25 @@ Code mostly(?) generated. Needs clean-up and documentation. Expect failure on wh
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
-describe.skip('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
-    it('will ensure validity of format, EP change to test case #', async () => {
+ describe('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
+//     it('will ensure validity of format, EP change to test case #', async () => {
+//         //uses provinceV.validDefault for countryV.valid2 (canada)
+//         await RegisterPage.open()
+//         await expect(RegisterPage.firstNameField).toBeExisting()
+//         await browser.pause(1000)
+               
+//         await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaV.validDefault, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+       
+//         await RegisterPage.nextButton.click()
+//         await browser.pause(1000)
+        
+//         await expect(RegisterPage.joinTText).toHaveTextContaining(' existing team. Just enter ')
+        
+//     })       
+            
+     })
+
+    /*it('will ensure validity of format, EP change to test case #', async () => {
         await RegisterPage.open()
         await expect(RegisterPage.firstNameField).toBeExisting()
         await browser.pause(1000)
@@ -49,8 +74,9 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
         
     })       
             
-    })
+    })*/
 
+//above contents got deleted, pasted from github
   /*
   
   Likely need other valid tests for Canada Postal, initial requirements are "7 characters" and "Must have proper format"
@@ -63,67 +89,76 @@ describe.skip('Addressing the Canada Postal field on the page, this positive tes
 //provinceV.validDefault
 //zipCanadaI.data
 
-    describe.skip('Addressing the Canada Postal field on the page, this negative test suite, zipCanada application...', () => {
+    describe('Addressing the Canada Postal field on the page, this negative test suite, zipCanada application...', () => {
         it('will ensure invalidity of 6 chars, BVA change to test case #', async () => {
             // no space (or 6 char), invalid1
             await RegisterPage.open()
             await expect(RegisterPage.firstNameField).toBeExisting()
             await browser.pause(1000)       
     
-            await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid1, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+            await RegisterPage.accntCreate(testValues.firstNameV.validDefault, 
+                 testValues.lastNameV.validDefault, 
+                 testValues.eMailV.validDefault, 
+                 testValues.passwordV.validDefault, testValues.confirmV.validDefault, 
+                 testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  
+                 testValues.countryV.valid2, testValues.cityV.validDefault, 
+                 testValues.provinceV.validDefault, testValues.zipCanadaI.invalid1, 
+                 testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, 
+                 testValues.phoneV.validDefaultPt3
+                )         //setting values for firstNameField? (parameter called in function)
            
             await RegisterPage.nextButton.click()
             await browser.pause(1000)
             //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.errorUSZip).toBeExisting()
+            //await expect(RegisterPage.errorUSZip).toBeExisting()
             
         })
 
-        it('will ensure invalidity of 8 chars, BVA change to test case #', async () => {
-            // 8 char, invalid2
-            await RegisterPage.open()
-            await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(1000)       
+         it('will ensure invalidity of 8 chars, BVA change to test case #', async () => {
+             // 8 char, invalid2
+             await RegisterPage.open()
+             await expect(RegisterPage.firstNameField).toBeExisting()
+             await browser.pause(1000)       
     
-            await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid2, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
            
-            await RegisterPage.nextButton.click()
-            await browser.pause(1000)
-            //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.errorUSZip).toBeExisting()
+             await RegisterPage.nextButton.click()
+             await browser.pause(1000)
+             //await expect(RegisterPage.regSolo).toBeExisting()
+             await expect(RegisterPage.errorUSZip).toBeExisting()
             
-        })
+         })
     
-        it('will ensure invalidity of 6 chars, EP change to test case #', async () => {
-            //5 char, invalid3
-            await RegisterPage.open()
-            await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(1000)       
+         it('will ensure invalidity of 6 chars, EP change to test case #', async () => {
+             //5 char, invalid3
+             await RegisterPage.open()
+             await expect(RegisterPage.firstNameField).toBeExisting()
+             await browser.pause(1000)       
     
-            await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid3, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
            
-            await RegisterPage.nextButton.click()
-            await browser.pause(1000)
-            //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.errorUSZip).toBeExisting()
+             await RegisterPage.nextButton.click()
+             await browser.pause(1000)
+             //await expect(RegisterPage.regSolo).toBeExisting()
+             await expect(RegisterPage.errorUSZip).toBeExisting()
             
-        })
+         })
 
 
-        it('will ensure invalidity of symbols, EP change to test case #', async () => {
-            //No symbols invalid4
-            await RegisterPage.open()
-            await expect(RegisterPage.firstNameField).toBeExisting()
-            await browser.pause(1000)       
+         it('will ensure invalidity of symbols, EP change to test case #', async () => {
+             //No symbols invalid4
+             await RegisterPage.open()
+             await expect(RegisterPage.firstNameField).toBeExisting()
+             await browser.pause(1000)       
     
-            await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
+             await RegisterPage.accntCreate(testValues.firstNameV.validDefault, testValues.lastNameV.validDefault, testValues.eMailV.validDefault, testValues.passwordV.validDefault, testValues.confirmV.validDefault, testValues.addressV.validDefault, testValues.aptSteUnitV.validDefault,  testValues.countryV.valid2, testValues.cityV.validDefault, testValues.provinceV.validDefault, testValues.zipCanadaI.invalid4, testValues.phoneV.validDefaultPt1, testValues.phoneV.validDefaultPt2, testValues.phoneV.validDefaultPt3)         //setting values for firstNameField? (parameter called in function)
            
-            await RegisterPage.nextButton.click()
-            await browser.pause(1000)
-            //await expect(RegisterPage.regSolo).toBeExisting()
-            await expect(RegisterPage.errorUSZip).toBeExisting()
+             await RegisterPage.nextButton.click()
+             await browser.pause(1000)
+             //await expect(RegisterPage.regSolo).toBeExisting()
+             await expect(RegisterPage.errorUSZip).toBeExisting()
             
-        })
+         })
 
         /*
         

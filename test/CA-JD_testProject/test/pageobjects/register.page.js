@@ -100,6 +100,9 @@ class RegisterPage extends Page {
     get cityOther () {          //xpath: //*[@id="city"]        //third party country's city/state is just city selector
         return $('#city');
     }
+    get titleCity () {
+        return $('//*[@id="lblCity"]');
+    }
 
 
     get canadaPostalField () {  //xpath: //*[@id="zip"]
@@ -117,6 +120,9 @@ class RegisterPage extends Page {
     }
     get errorUSZip () {
         return $('//*[@id="zip-errorDv"]')
+    }
+    get titleZip () {
+        return $('//*[@id="lblZip"]')
     }
 
     get phoneField1 () {        //xpath: //*[@id="phoneNumber"]
