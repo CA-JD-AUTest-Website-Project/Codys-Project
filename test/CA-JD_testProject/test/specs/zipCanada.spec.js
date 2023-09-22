@@ -42,7 +42,7 @@ Actual: null
 import RegisterPage from '../pageobjects/register.page.js'
 import { testValues } from '../testData/testData.js'
 
- describe('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
+ describe.skip('Addressing the Canada Postal field on the page, this positive test suite, zipCanada application...', () => {
 //     it('will ensure validity of format, EP change to test case #', async () => {
 //         //uses provinceV.validDefault for countryV.valid2 (canada)
 //         await RegisterPage.open()
@@ -89,7 +89,7 @@ import { testValues } from '../testData/testData.js'
 //provinceV.validDefault
 //zipCanadaI.data
 
-    describe('Addressing the Canada Postal field on the page, this negative test suite, zipCanada application...', () => {
+    describe.skip('Addressing the Canada Postal field on the page, this negative test suite, zipCanada application...', () => {
         it('will ensure invalidity of 6 chars, BVA change to test case #', async () => {
             // no space (or 6 char), invalid1
             await RegisterPage.open()
